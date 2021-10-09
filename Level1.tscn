@@ -1,0 +1,196 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://world_tileset.tres" type="TileSet" id=1]
+[ext_resource path="res://Steve.tscn" type="PackedScene" id=2]
+[ext_resource path="res://pass_through_tileset.tres" type="TileSet" id=3]
+[ext_resource path="res://ASSETS/background/set2_tiles.png" type="Texture" id=4]
+[ext_resource path="res://ASSETS/background/set2_background.png" type="Texture" id=5]
+[ext_resource path="res://coin.tscn" type="PackedScene" id=6]
+[ext_resource path="res://ASSETS/fonts/BalsamiqSans-Bold.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://ASSETS/HUD/coin_gold.png" type="Texture" id=8]
+[ext_resource path="res://HUD.gd" type="Script" id=9]
+[ext_resource path="res://enemy.tscn" type="PackedScene" id=10]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 128, 32 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 128, 32 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 1878.98, 69.4319 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0, 0, 0, 0.211765 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="DynamicFont" id=5]
+size = 49
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 70
+font_data = ExtResource( 7 )
+
+[node name="Level1" type="Node2D"]
+
+[node name="Tile Solid" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+collision_layer = 2
+collision_mask = 49
+format = 1
+tile_data = PoolIntArray( -131054, 4, 0, -131053, 2, 0, -131052, 2, 0, -131051, 2, 0, -131050, 2, 0, -131049, 2, 0, -131048, 2, 0, -131047, 2, 0, -131046, 2, 0, -131045, 2, 0, -131044, 2, 0, -131043, 2, 0, -131042, 5, 0, 65513, -1610612734, 0, 12, 4, 0, 13, 2, 0, 14, 2, 0, 15, 5, 0, 131049, -1610612734, 0, 196585, -1610612734, 0, 262121, -1610612734, 0, 196625, 4, 0, 196626, 2, 0, 196627, 5, 0, 327657, -1610612734, 0, 393193, -1610612734, 0, 327691, 4, 0, 327692, 2, 0, 327693, 2, 0, 327694, 5, 0, 458729, -1610612734, 0, 524265, -1610612734, 0, 589801, 2, 0, 589802, 2, 0, 589803, 2, 0, 589804, 2, 0, 589805, 2, 0, 589806, 2, 0, 589807, 2, 0, 589808, 2, 0, 589809, 2, 0, 589810, 3, 0, 589813, 1, 0, 589814, 2, 0, 589815, 2, 0, 589816, 2, 0, 589817, 2, 0, 589818, 2, 0, 589819, 2, 0, 589820, 2, 0, 589821, 2, 0, 589822, 2, 0, 589823, 2, 0, 524288, 2, 0, 524289, 2, 0, 524290, 2, 0, 524291, 2, 0, 524292, 2, 0, 524293, 2, 0, 524294, 2, 0, 524295, 2, 0, 524296, 2, 0, 524297, 2, 0, 524298, 3, 0, 655337, 0, 0, 655338, 0, 0, 655339, 0, 0, 655340, 0, 0, 655341, 0, 0, 655342, 0, 0, 655343, 0, 0, 655344, 0, 0, 655345, 0, 0, 655346, 0, 0, 655349, 0, 0, 655350, 0, 0, 655351, 0, 0, 655352, 0, 0, 655353, 0, 0, 655354, 0, 0, 655355, 0, 0, 655356, 0, 0, 655357, 0, 0, 655358, 0, 0, 655359, 0, 0, 589824, 0, 0, 589825, 0, 0, 589826, 0, 0, 589827, 0, 0, 589828, 0, 0, 589829, 0, 0, 589830, 0, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 0, 589834, 0, 0, 720873, 0, 0, 720874, 0, 0, 720875, 0, 0, 720876, 0, 0, 720877, 0, 0, 720878, 0, 0, 720879, 0, 0, 720880, 0, 0, 720881, 0, 0, 720882, 0, 0, 720885, 0, 0, 720886, 0, 0, 720887, 0, 0, 720888, 0, 0, 720889, 0, 0, 720890, 0, 0, 720891, 0, 0, 720892, 0, 0, 720893, 0, 0, 720894, 0, 0, 720895, 0, 0, 655360, 0, 0, 655361, 0, 0, 655362, 0, 0, 655363, 0, 0, 655364, 0, 0, 655365, 0, 0, 655366, 0, 0, 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655370, 0, 0, 786409, 0, 0, 786410, 0, 0, 786411, 0, 0, 786412, 0, 0, 786413, 0, 0, 786414, 0, 0, 786415, 0, 0, 786416, 0, 0, 786417, 0, 0, 786418, 0, 0, 786421, 0, 0, 786422, 0, 0, 786423, 0, 0, 786424, 0, 0, 786425, 0, 0, 786426, 0, 0, 786427, 0, 0, 786428, 0, 0, 786429, 0, 0, 786430, 0, 0, 786431, 0, 0, 720896, 0, 0, 720897, 0, 0, 720898, 0, 0, 720899, 0, 0, 720900, 0, 0, 720901, 0, 0, 720902, 0, 0, 720903, 0, 0, 720904, 0, 0, 720905, 0, 0, 720906, 0, 0 )
+
+[node name="Tiles One_way" type="TileMap" parent="."]
+tile_set = ExtResource( 3 )
+collision_layer = 2
+collision_mask = 49
+format = 1
+tile_data = PoolIntArray( 196594, 1, 0, 196595, 2, 0, 196596, 2, 0, 196597, 3, 0, 262130, 0, 0, 262131, 0, 0, 262132, 0, 0, 262133, 0, 0, 327666, 0, 0, 327667, 0, 0, 327668, 0, 0, 327669, 0, 0, 393202, 2, 0, 393203, 2, 0, 393204, 2, 0, 393205, 2, 0, 327691, 4, 0, 458738, 0, 0, 458739, 0, 0, 458740, 0, 0, 458741, 0, 0, 524274, 0, 0, 524275, 0, 0, 524276, 0, 0, 524277, 0, 0, 589810, 2, 0, 589811, 2, 0, 589812, 2, 0, 589813, 2, 0 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Tiles One_way"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles One_way/StaticBody2D"]
+position = Vector2( -768, 352 )
+shape = SubResource( 1 )
+one_way_collision = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Tiles One_way/StaticBody2D"]
+position = Vector2( -768, 160 )
+shape = SubResource( 2 )
+one_way_collision = true
+
+[node name="Steve" parent="." instance=ExtResource( 2 )]
+position = Vector2( -1207.32, 300.683 )
+collision_mask = 30
+
+[node name="Camera2D" type="Camera2D" parent="Steve"]
+current = true
+limit_left = -1420
+limit_bottom = 840
+limit_smoothed = true
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+drag_margin_left = 0.3
+drag_margin_right = 0.3
+editor_draw_limits = true
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Purple Sky" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 1280, 960 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Purple Sky"]
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
+centered = false
+
+[node name="Middle Blocks" type="ParallaxLayer" parent="ParallaxBackground"]
+modulate = Color( 0.627451, 0.486275, 0.752941, 0.592157 )
+motion_scale = Vector2( 0.4, 0.4 )
+motion_offset = Vector2( 0, -500 )
+motion_mirroring = Vector2( 1600, 1200 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Middle Blocks"]
+scale = Vector2( 2.5, 2.5 )
+texture = ExtResource( 4 )
+centered = false
+
+[node name="Nearby Blocks" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.6, 0.6 )
+motion_mirroring = Vector2( 1120, 840 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Nearby Blocks"]
+scale = Vector2( 1.75, 1.75 )
+texture = ExtResource( 4 )
+centered = false
+
+[node name="Fallzone" type="Area2D" parent="."]
+position = Vector2( 823.37, 922.235 )
+collision_layer = 4
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fallzone"]
+shape = SubResource( 3 )
+
+[node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource( 9 )
+
+[node name="Panel" type="Panel" parent="HUD"]
+margin_left = 64.0
+margin_top = 34.0
+margin_right = 369.0
+margin_bottom = 163.0
+custom_styles/panel = SubResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="HUD"]
+margin_left = 89.2274
+margin_top = 63.7955
+margin_right = 165.227
+margin_bottom = 134.796
+texture = ExtResource( 8 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="x" type="Label" parent="HUD"]
+margin_left = 189.0
+margin_top = 72.3182
+margin_right = 221.0
+margin_bottom = 132.318
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0.788235, 0.811765, 0.0156863, 1 )
+text = "x"
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Coins" type="Label" parent="HUD"]
+margin_left = 244.227
+margin_top = 59.591
+margin_right = 338.227
+margin_bottom = 143.591
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0.788235, 0.811765, 0.0156863, 1 )
+text = "##"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="coins" type="Node2D" parent="."]
+
+[node name="coin" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( -704, 448 )
+
+[node name="coin2" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( -576, -128 )
+
+[node name="coin3" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 1216, 128 )
+
+[node name="coin4" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 2112, -384 )
+
+[node name="enemies" type="Node2D" parent="."]
+
+[node name="enemy" parent="enemies" instance=ExtResource( 10 )]
+position = Vector2( -1318.14, 264.751 )
+
+[connection signal="body_entered" from="Fallzone" to="Steve" method="_on_Fallzone_body_entered"]
+[connection signal="coin_collected" from="coins/coin" to="HUD" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="coins/coin2" to="HUD" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="coins/coin3" to="HUD" method="_on_coin_coin_collected"]
+[connection signal="coin_collected" from="coins/coin4" to="HUD" method="_on_coin_coin_collected"]
